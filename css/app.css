@@ -1,0 +1,390 @@
+/* love-gallery — page styles (built on css/theme.css) */
+
+.gallery-hero {
+  padding-block: clamp(2.5rem, 7vw, 5rem) clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.small-caption {
+  max-width: 44ch;
+  margin: 0.35rem auto 0.5rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---------- add form ---------- */
+
+.add-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 720px;
+  margin: 1.4rem auto 0;
+  text-align: left;
+}
+
+.field {
+  display: block;
+}
+
+.field > span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.field input[type="text"],
+.field input[type="date"] {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font: inherit;
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--pink);
+}
+
+.file-field input[type="file"] {
+  width: 100%;
+  padding: 0.9rem;
+  border: 1px dashed var(--pink-strong);
+  border-radius: 14px;
+  background: linear-gradient(150deg, rgba(255, 182, 216, 0.1), rgba(255, 255, 255, 0.02));
+  color: var(--muted);
+  font: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.add-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px auto;
+  gap: 1rem;
+  align-items: end;
+}
+
+.file-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- meta chips ---------- */
+
+.gallery-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1.2rem;
+}
+
+/* ---------- timeline ---------- */
+
+.timeline-list {
+  display: grid;
+  gap: 2rem;
+  margin-top: 1.8rem;
+  text-align: left;
+}
+
+.month-section {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.month-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line);
+  font-family: Georgia, serif;
+  font-size: 1.25rem;
+}
+
+.month-heading .month-note {
+  color: var(--muted);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.8rem;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.photo-card {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.photo-card:hover,
+.photo-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--pink);
+  outline: none;
+}
+
+.photo-thumb {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: linear-gradient(150deg, #202348, #12152c);
+}
+
+.photo-card figcaption {
+  padding: 0.7rem 0.85rem 0.85rem;
+}
+
+.photo-caption {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.photo-date {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-style: italic;
+}
+
+.gallery-empty {
+  padding: 3rem 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* ---------- storage meter ---------- */
+
+.storage-meter {
+  max-width: 640px;
+  margin: 1.6rem auto 0;
+}
+
+.storage-track {
+  height: 16px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.storage-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  transition: width 0.4s ease;
+}
+
+.storage-label {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- settings ---------- */
+
+.settings-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 1.4rem;
+}
+
+.file-label {
+  cursor: pointer;
+}
+
+.settings-note {
+  margin-top: 1rem;
+  min-height: 1.4em;
+  color: var(--pink);
+  font-size: 0.9rem;
+}
+
+/* ---------- lightbox ---------- */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(5, 6, 18, 0.92);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox[hidden] {
+  display: none;
+}
+
+.lightbox-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.5rem;
+  width: min(960px, 100%);
+}
+
+.lightbox-img {
+  grid-column: 2;
+  width: 100%;
+  max-height: 64vh;
+  object-fit: contain;
+  border-radius: 14px;
+  background: #0b0d22;
+}
+
+.lightbox-info {
+  grid-column: 1 / -1;
+  margin-top: 0.6rem;
+  text-align: center;
+}
+
+.lightbox-caption {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.lightbox-date {
+  margin: 0.2rem 0 0;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.lightbox-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 0.9rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -0.6rem;
+  right: -0.2rem;
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--bg-soft);
+  color: var(--text);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lightbox-nav {
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--panel);
+  color: var(--text);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.lightbox-nav:hover,
+.lightbox-nav:focus-visible {
+  background: var(--bg-soft);
+  transform: scale(1.06);
+}
+
+.lightbox-prev {
+  grid-column: 1;
+}
+
+.lightbox-next {
+  grid-column: 3;
+}
+
+/* ---------- responsive ---------- */
+
+@media (max-width: 640px) {
+  .add-row {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .lightbox-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox-img {
+    grid-column: 1;
+  }
+
+  .lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-nav:hover,
+  .lightbox-nav:focus-visible {
+    transform: translateY(-50%) scale(1.06);
+  }
+
+  .lightbox-prev {
+    left: 0.3rem;
+    grid-column: 1;
+  }
+
+  .lightbox-next {
+    right: 0.3rem;
+    grid-column: 1;
+  }
+}
+
+@media print {
+  #starfield,
+  .site-header,
+  .site-footer,
+  .hero-actions,
+  .float-stack,
+  .back-to-top,
+  .lightbox,
+  #add,
+  #storage,
+  #details {
+    display: none !important;
+  }
+}
