@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Our Gallery — for Mena">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="32%" r="78%">
+      <stop offset="0%" stop-color="#1a1d43"/>
+      <stop offset="100%" stop-color="#090b20"/>
+    </radialGradient>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffd76f"/>
+      <stop offset="100%" stop-color="#ff72b8"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="url(#bg)"/>
+  <rect x="9" y="16" width="46" height="34" rx="6" fill="none" stroke="#bba6ff" stroke-width="3"/>
+  <rect x="14.5" y="21.5" width="35" height="23" rx="3" fill="url(#sky)" opacity="0.55"/>
+  <path d="M32 40.5s-5.4-3.3-5.4-6.6c0-2 1.5-3.4 3.2-3.4 1 0 1.7.4 2.2 1.2.5-.8 1.2-1.2 2.2-1.2 1.7 0 3.2 1.4 3.2 3.4 0 3.3-5.4 6.6-5.4 6.6z" fill="#fff4e8"/>
+  <rect x="24" y="11.5" width="16" height="7" rx="3" fill="#bba6ff"/>
+  <circle cx="32" cy="15" r="2.2" fill="#090b20"/>
+</svg>
