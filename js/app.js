@@ -668,8 +668,9 @@
       var open = $("lightbox") && !$("lightbox").hidden;
       if (!open) return;
       if (ev.key === "Escape") closeLightbox();
-      if (ev.key === "ArrowLeft") stepLightbox(-1);
-      if (ev.key === "ArrowRight") stepLightbox(1);
+      else if (ev.key === "ArrowLeft") stepLightbox(-1);
+      else if (ev.key === "ArrowRight") stepLightbox(1);
+      else if (ev.key === "Delete" || ev.key === "Backspace") { ev.preventDefault(); deleteCurrent(); }
     });
   }
 
