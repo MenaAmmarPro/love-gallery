@@ -383,7 +383,7 @@
     }
 
     setText("photo-count", state.photos.length);
-    setText("month-count", groupByMonth(state.photos).filter(function (g) { return g.key; }).length);
+    setText("month-count", groups.filter(function (g) { return g.key; }).length);
     renderStorage();
   }
 
