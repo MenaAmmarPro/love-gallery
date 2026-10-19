@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b20">
+  <meta name="description" content="Our Gallery — a photo timeline for Mena. Add pictures, caption them, and keep them on your own device.">
+  <title>Our Gallery ✦ Love for Mena</title>
+  <link rel="canonical" href="https://menaammarpro.github.io/love-gallery/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Our Gallery — for Mena">
+  <meta property="og:title" content="Our Gallery ✦ Love for Mena">
+  <meta property="og:description" content="A photo timeline for the two of us — captioned, dated, and kept just here.">
+  <meta property="og:url" content="https://menaammarpro.github.io/love-gallery/">
+  <meta property="og:image" content="https://menaammarpro.github.io/love-gallery/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Our Gallery">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/icon-192.png">
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+
+  <header class="site-header">
+    <a class="brand" href="index.html">❁ Our Gallery</a>
+    <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false">Menu</button>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a class="active" href="index.html">Home</a>
+      <a href="#add">Add</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#details">Details</a>
+      <div class="nav-more">
+        <button class="nav-more-toggle" type="button" aria-expanded="false">More <span class="caret">▾</span></button>
+        <div class="nav-more-menu">
+          <a href="https://menaammarpro.github.io/love-art/">love-art</a>
+          <a href="https://menaammarpro.github.io/love-mural/">love-mural</a>
+          <a href="https://menaammarpro.github.io/love-memory-jar/">love-memory-jar</a>
+          <a href="https://menaammarpro.github.io/love-map/">love-map</a>
+          <a href="https://menaammarpro.github.io/">All projects ↗</a>
+        </div>
+      </div>
+      <button class="theme-toggle" type="button" aria-label="Toggle color theme">Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero gallery-hero">
+      <p class="eyebrow">OUR PHOTOS, ONE AFTER ANOTHER</p>
+      <div class="moon" aria-hidden="true">📷</div>
+      <p class="small-caption">Every picture tells a little more of us.</p>
+      <h1>Our <span>gallery.</span></h1>
+      <p class="hero-description">
+        Add a photo, give it a caption, and it files itself into the month it
+        belongs to. Nothing ever leaves this device — the pictures stay right
+        here, just for the two of us.
+      </p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#add">Add a photo <span>♥</span></a>
+        <a class="button button-ghost" href="#timeline">See the timeline</a>
+      </div>
+      <p class="signature">Made with love, just for you <span>♥</span></p>
+    </section>
+
+    <section class="section" id="add">
+      <p class="eyebrow">A NEW MEMORY</p>
+      <h2>Add a <span>photo.</span></h2>
+      <p class="section-note">
+        Pick one or more pictures. They're shrunk down to keep things light,
+        then saved on this device only.
+      </p>
+      <div class="add-form">
+        <label class="field file-field">
+          <span>Photos</span>
+          <input id="file-input" type="file" accept="image/*" multiple>
+        </label>
+        <div class="add-row">
+          <label class="field">
+            <span>Caption</span>
+            <input id="caption-input" type="text" maxlength="140" placeholder="A little note for these photos">
+          </label>
+          <label class="field field-date">
+            <span>Date</span>
+            <input id="date-input" type="date">
+          </label>
+          <button class="button button-primary" id="add-photo" type="button" disabled>Add to gallery <span>♥</span></button>
+        </div>
+        <p class="file-count" id="file-count">No photos chosen yet.</p>
+      </div>
+      <p class="section-note" id="add-note" aria-live="polite"></p>
+    </section>
+
+    <section class="section" id="timeline">
+      <p class="eyebrow">EVERYTHING, IN ORDER</p>
+      <h2>The <span>timeline.</span></h2>
+      <div class="gallery-meta">
+        <span class="diary-chip"><strong id="photo-count">0</strong> photos</span>
+        <span class="diary-chip"><strong id="month-count">0</strong> months</span>
+      </div>
+      <div id="timeline-list" class="timeline-list"></div>
+    </section>
+
+    <section class="section" id="storage">
+      <p class="eyebrow">ON THIS DEVICE</p>
+      <h2>Storage.</h2>
+      <div class="storage-meter">
+        <div class="storage-track">
+          <div id="storage-fill" class="storage-fill"></div>
+        </div>
+        <p class="storage-label" id="storage-label">0 B used</p>
+      </div>
+      <p class="section-note">
+        Photos live in your browser's own storage. When it fills up, download
+        and remove some, or export the captions and start again.
+      </p>
+    </section>
+
+    <section class="section" id="details">
+      <p class="eyebrow">JUST FOR US</p>
+      <h2>Details.</h2>
+      <div class="settings-actions">
+        <button class="button button-ghost" id="export-meta" type="button">Export captions (JSON)</button>
+        <label class="button button-ghost file-label">
+          Import captions
+          <input id="import-meta" type="file" accept="application/json,.json" hidden>
+        </label>
+        <button class="button button-ghost" id="clear-gallery" type="button">Remove all photos</button>
+      </div>
+      <p class="settings-note" id="save-note" aria-live="polite"></p>
+      <p class="section-note">
+        Export saves only the captions and dates, never the pictures themselves.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Made with care <span>♥</span> for Mena</p>
+    <p class="footer-small">A little universe of its own ✦</p>
+  </footer>
+
+  <div id="lightbox" class="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Photo">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close">×</button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous photo">‹</button>
+      <img id="lightbox-img" class="lightbox-img" alt="">
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="Next photo">›</button>
+      <div class="lightbox-info">
+        <p class="lightbox-caption" id="lightbox-caption"></p>
+        <p class="lightbox-date" id="lightbox-date"></p>
+        <div class="lightbox-actions">
+          <button class="button button-ghost" id="lightbox-download" type="button">Download</button>
+          <button class="button button-ghost" id="lightbox-delete" type="button">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/theme-main.js" defer></script>
+  <script src="js/effects.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
