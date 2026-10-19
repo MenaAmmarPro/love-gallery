@@ -1,6 +1,6 @@
 "use strict";
 
-const CACHE = "our-gallery-v1";
+const CACHE = "our-gallery-v2";
 
 const ASSETS = [
   "./",
