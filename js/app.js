@@ -465,6 +465,7 @@
     getPhoto(photo.id).then(function (blob) {
       if (!img) return;
       if (blob) {
+        if (img.src) { try { URL.revokeObjectURL(img.src); } catch (e) { /* ignore */ } }
         img.src = URL.createObjectURL(blob);
         img.alt = photo.caption || "A photo of us";
       } else {
